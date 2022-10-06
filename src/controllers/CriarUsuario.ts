@@ -5,7 +5,11 @@ class CriarUsuario{
 
     const name = request.body.name
     
-    return response.json({mensagem: `Usuario ${name} criado!`})
+    if(NamedNodeMap.length == 0){
+      response.status(400).json({mensagem: 'Informe um nome de usuario.'})
+    }
+
+    return response.status(200).json({mensagem: `Usuario ${name} criado!`})
 
     } 
 }
